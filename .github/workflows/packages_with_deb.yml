@@ -12,10 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: preparation
-        run: sudo apt install -y cmake g++ cpack clang
+      - name: preparation
+        run: |
+          sudo apt install -y cmake
+          sudo apt install -y g++
+          sudo apt install -y cpack
+          sudo apt install -y clang
           
       - name: Build Solver_app with Debian Generator
         run: |
