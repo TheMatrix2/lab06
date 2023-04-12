@@ -1,0 +1,44 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure and build formatter lib
+      run: |
+        mkdir formatter_lib/build
+        cd formatter_lib/build
+        cmake ..
+        make
+        
+    - name: Configure and build formatter_ex lib
+      run: |
+        mkdir formatter_ex_lib/build
+        cd formatter_ex_lib/build
+        cmake ..
+        make
+        
+    - name: Configure and build solver lib
+      run: |
+        mkdir solver_lib/build
+        cd solver_lib/build
+        cmake ..
+        make
+    - name: Configure and build solver app
+      run: |
+        mkdir solver_application/build
+        cd solver_application/build
+        cmake ..
+        make
