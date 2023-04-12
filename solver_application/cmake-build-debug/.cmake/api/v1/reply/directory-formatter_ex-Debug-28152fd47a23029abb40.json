@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "formatter_ex",
+		"source" : "/home/thematrix/TheMatrix2/lab06/formatter_ex_lib"
+	}
+}

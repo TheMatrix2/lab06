@@ -1,0 +1,9 @@
+# ninja log v5
+320	330	1681322708871289391	solver_lib/libsolver_lib.a	3bc410fe604aa16a
+1	371	1681322708911289446	formatter_ex/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o	307a90e612aabd98
+1	282	1681322708819289320	formatter_ex/formatter/CMakeFiles/formatter.dir/formatter.cpp.o	a2b2c6ab396c193c
+1	320	1681322708859289375	solver_lib/CMakeFiles/solver_lib.dir/solver.cpp.o	ccf3ca5470824a77
+371	381	1681322708919289457	formatter_ex/libformatter_ex.a	4188a54d70f81b88
+0	390	1681322708927289468	CMakeFiles/solver.dir/equation.cpp.o	6a041eb74a2b4408
+282	296	1681322708835289342	formatter_ex/formatter/libformatter.a	51d765427a5c27f8
+390	520	1681322709055289643	solver	4e555a573f1bd5a8

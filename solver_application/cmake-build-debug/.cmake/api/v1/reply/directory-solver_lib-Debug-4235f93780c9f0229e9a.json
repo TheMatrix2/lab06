@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "solver_lib",
+		"source" : "/home/thematrix/TheMatrix2/lab06/solver_lib"
+	}
+}
