@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.4)
 set(CMAKE_CXX_STANDARD 11)
 
+option(CPACK_GENERATOR_DEB OFF)
+option(CPACK_GENERATOR_RPM OFF)
+option(CPACK_GENERATOR_MSI OFF)
+option(CPACK_GENERATOR_DMG OFF)
+
 project(solver)
 
 add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
@@ -19,16 +24,23 @@ install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
 set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 
-set(CPACK_GENERATOR "RPM")
+if(CPACK_GENERATOR_RPM)
+    set(CPACK_GENERATOR "RPM")
+endif()
 
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER "the-blind-pew")
-set(CPACK_GENERATOR "DEB")
+if(CPACK_GENERATOR_DEB)
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "the-blind-pew")
+    set(CPACK_GENERATOR "DEB")
+endif()
 
+if(CPACK_GENERATOR_MSI)
+    set(CPACK_GENERATOR "WIX")
+endif()
 
-set(CPACK_GENERATOR "WIX")
-
-set(MACOSX_BUNDLE TRUE)
-set(CPACK_GENERATOR "DragNDrop")
+if(CPACK_GENERATOR_DMG)
+    set(MACOSX_BUNDLE TRUE)
+    set(CPACK_GENERATOR "DragNDrop")
+endif()
 
 include(CPack)
 
