@@ -1,0 +1,52 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: cmake/action@v1
+      with:
+        cmake-version: "3.4"
+
+    - name: Install build dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+
+    - name: Build solver binary
+      run: |
+        cd solver_application
+        cmake --build . --target solver --config Release
+
+    - name: Build source archives
+      run: |
+        tar -czvf solver.tar.gz solver_application/CMakeLists.txt
+        zip -r solver.zip solver_application/CMakeLists.txt
+
+    - name: Build binary packages
+      run: |
+        cpack -G DEB -C ${CMAKE_BUILD_TYPE}
+        cpack -G RPM -C ${CMAKE_BUILD_TYPE}
+        cpack -G WIX -C ${CMAKE_BUILD_TYPE}
+        cpack -G DragNDrop -C ${CMAKE_BUILD_TYPE}
+
+    - name: Release artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: >
+          solver.tar.gz,
+          solver.zip,
+          *.deb,
+          *.rpm,
+          *.msi,
+          *.dmg
