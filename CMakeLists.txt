@@ -8,15 +8,15 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(solver)
 
-add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
+add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/solver_application/equation.cpp)
 
 include_directories(
-${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib
-${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib)
+${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib
+${CMAKE_CURRENT_SOURCE_DIR}/solver_lib)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib formatter_ex)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib formatter_ex)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib solver_lib)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/solver_lib solver_lib)
 
 target_link_libraries(solver formatter_ex solver_lib)
 
@@ -39,7 +39,7 @@ set(CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 
 #if(CPACK_GENERATOR_DMG)
     set(MACOSX_BUNDLE TRUE)
-    set(CPACK_GENERATOR "DragNDrop")
+    set(CPACK_GENERATOR "DMG")
 #endif()
 
 include(CPack)
