@@ -56,4 +56,4 @@ jobs:
         cmake ..
         make
     - name: Make packages
-      run: cpack -G TGZ -G ZIP -G DEB -G RPM -C $(CMAKE_BINARY_DIR)
+      run: cpack -G TGZ -G ZIP -G DEB -G RPM
