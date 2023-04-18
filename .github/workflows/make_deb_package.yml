@@ -51,5 +51,5 @@ jobs:
       id: "automatic_release"
 
     - name: Set release tag
-    run: echo "::set-output name=release_tag::${{ steps.create_release.outputs.tag_name }}"
-    id: "automatic_release_tag"
+      run: echo "::set-output name=release_tag::${{ steps.create_release.outputs.tag_name }}"
+      id: "automatic_release_tag"
