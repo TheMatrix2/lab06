@@ -18,7 +18,6 @@ jobs:
         run: |
           sudo apt install -y cmake
           sudo apt install -y g++
-          sudo apt install -y cpack
           sudo apt install -y clang
 
       - name: Build Solver App and Create Debian Package
