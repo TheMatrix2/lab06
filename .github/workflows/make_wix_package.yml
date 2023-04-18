@@ -34,4 +34,4 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         files: build/packages/*
-      id: "automatic_release_tag"
+      id: "automatic_release"
