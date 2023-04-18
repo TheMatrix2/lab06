@@ -3,7 +3,7 @@ name: Make Windows Installer XML Package
 on:
   push:
     branches:
-      - main
+#      - main
     tags:
       - "v*.*.*-wix"
 
@@ -12,28 +12,28 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Building preparation
-        run: |
-          sudo apt install -y cmake
-          sudo apt install -y g++
-          sudo apt install -y clang
+    - name: Building preparation
+      run: |
+        sudo apt install -y cmake
+        sudo apt install -y g++
+        sudo apt install -y clang
 
-      - name: Build Solver App and Create Debian Package
-        run: |
-          mkdir build
-          cd build
-          cmake ..
-          make package
-          cpack -G WIX packages
-          cpack -G ZIP packages
-          cpack -G TGZ packages
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: build/packages/*
-        id:
-          "automatic_releases"
-          "automatic_release_tag"
+    - name: Build Solver App and Create Debian Package
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make package
+        cpack -G WIX packages
+        cpack -G ZIP packages
+        cpack -G TGZ packages
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: build/packages/*
+      id:
+        "automatic_releases"
+        "automatic_release_tag"

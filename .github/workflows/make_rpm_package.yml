@@ -3,7 +3,7 @@ name: Make Red Hat Package Manager Package
 on:
   push:
     branches:
-      - main
+#      - main
     tags:
       - "v*.*.*-rpm"
 
