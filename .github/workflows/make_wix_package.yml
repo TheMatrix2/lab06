@@ -33,10 +33,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: |
-            build/packages/*.wix
-            build/packages/*.tar.gz
-            build/packages/*.zip
+          files: build/packages/*
         id:
           "automatic_releases"
           "automatic_release_tag"
