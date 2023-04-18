@@ -1,4 +1,4 @@
-name: Make Debian Package
+name: Make Windows Installer XML Package
 
 on:
   push:

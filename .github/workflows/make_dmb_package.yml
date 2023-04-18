@@ -1,4 +1,4 @@
-name: Make Debian Package
+name: Make DragNDrop Package
 
 on:
   push:

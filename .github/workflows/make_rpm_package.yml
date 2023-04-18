@@ -1,4 +1,4 @@
-name: Make Debian Package
+name: Make Red Hat Package Manager Package
 
 on:
   push:
