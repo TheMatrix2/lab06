@@ -29,7 +29,6 @@ jobs:
           cpack -G DEB packages
           cpack -G ZIP packages
           cpack -G TGZ packages
-
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
