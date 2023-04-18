@@ -2,8 +2,8 @@ name: Make Windows Installer XML Package
 
 on:
   push:
-#    branches:
-#      - main
+    branches:
+      - main
     tags:
       - "v*.*.*-wix"
 
@@ -34,6 +34,4 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         files: build/packages/*
-      id:
-        "automatic_releases"
-        "automatic_release_tag"
+      id: "automatic_release_tag"
