@@ -32,7 +32,10 @@ jobs:
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        repo_token: "${{ secrets.TOKEN }}"
         prerelease: false
-        files: build/packages/*
+        files: |
+          build/*.zip
+          build/*.tar.gz
+          build/*.wix
       id: "automatic_release"

@@ -34,7 +34,10 @@ jobs:
       with:
         repo_token: "${{ secrets.TOKEN }}"
         prerelease: false
-        files: build/*
+        files: |
+          build/*.zip
+          build/*.tar.gz
+          build/*.deb
       id: "automatic_release"
 
     - name: Set release tag
