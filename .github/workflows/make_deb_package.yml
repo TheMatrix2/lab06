@@ -38,4 +38,6 @@ jobs:
             build/packages/*.deb
             build/packages/*.tar.gz
             build/packages/*.zip
-        id: "automatic_releases"
+        id:
+          "automatic_releases"
+          "automatic_release_tag"
