@@ -49,16 +49,42 @@ jobs:
         cd solver_lib/build
         cmake ..
         make
+
     - name: Configure and build solver app
       run: |
         mkdir build
         cd build
         cmake ..
         make
+
+  release:
     - name: Make packages
       run: | 
         cd build
-        cpack -G TGZ
-        cpack -G ZIP
-        cpack -G DEB
-        cpack -G RPM
+        mkdir packages
+        cpack -G TGZ -G ZIP -G DEB -G RPM -G DMG packages
+
+    - name: Release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        tag_name: v${{github.ref}}
+        release_name: Release ${{github.ref}}
+      body: |
+        Release ${{ github.ref }}
+      draft: false
+      prerelease: false
+
+    - name: Upload packages
+      uses: actions/upload-release-asset@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      asset_path: |
+        build/packages/*.tar.gz
+        build/packages/*.zip
+        build/packages/*.deb
+        build/packages/*.rpm
+        build/packages/*.dmg
