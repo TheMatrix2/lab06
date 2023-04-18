@@ -2,7 +2,7 @@ name: Make DragNDrop Package
 
 on:
   push:
-    branches:
+#    branches:
 #      - main
     tags:
       - "v*.*.*-dmb"
