@@ -27,6 +27,7 @@ jobs:
           cmake ..
           make package
           make package_source
+          cpack -G RPM
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
