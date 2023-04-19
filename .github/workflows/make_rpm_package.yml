@@ -20,12 +20,12 @@ jobs:
           sudo apt install -y g++
           sudo apt install -y clang
 
-      - name: Build Solver App and Create Debian Package
+      - name: Build Solver App and Create Red Hat Package Manager Package
         run: |
           mkdir build
           cd build
           cmake ..
-          make package
+          make
           cpack -G RPM
           cpack -G ZIP
           cpack -G TGZ
@@ -35,9 +35,9 @@ jobs:
           repo_token: "${{ secrets.TOKEN }}"
           prerelease: false
           files: |
-            build/packages/*.rpm
-            build/packages/*.tar.gz
-            build/packages/*.zip
+            build/*.rpm
+            build/*.tar.gz
+            build/*.zip
         id: "automatic_release"
 
       - name: Set release tag

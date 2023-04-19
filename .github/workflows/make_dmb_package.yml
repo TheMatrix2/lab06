@@ -20,15 +20,15 @@ jobs:
           sudo apt install -y g++
           sudo apt install -y clang
 
-      - name: Build Solver App and Create Debian Package
+      - name: Build Solver App and Create DragNDrop Package
         run: |
           mkdir build
           cd build
           cmake ..
-          make package
-          cpack -G DMB packages
-          cpack -G ZIP packages
-          cpack -G TGZ packages
+          make
+          cpack -G DragNDrop
+          cpack -G ZIP
+          cpack -G TGZ
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

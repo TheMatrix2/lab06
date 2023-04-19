@@ -20,12 +20,12 @@ jobs:
         sudo apt install -y g++
         sudo apt install -y clang
 
-    - name: Build Solver App and Create Debian Package
+    - name: Build Solver App and Create Windows Installer XML Package
       run: |
         mkdir build
         cd build
         cmake ..
-        make package
+        make
         cpack -G WIX
         cpack -G ZIP
         cpack -G TGZ
