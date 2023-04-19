@@ -26,7 +26,7 @@ jobs:
           cd build
           cmake ..
           make package
-          make source_package
+          make package_source
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
