@@ -25,10 +25,8 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make
-          cpack -G RPM
-          cpack -G ZIP
-          cpack -G TGZ
+          make package
+          make source_package
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
